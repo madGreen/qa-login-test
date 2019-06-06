@@ -24,16 +24,15 @@ public class AppTest {
     @Before
     //Указать папку с webdriver, Определить браузер, открыть страницу
     public void start() {
-        // меня локально установлен chromewebdriver, так что строку
-        //можно закомментировать, selenide подтянет все из пакета.
-        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        //у меня локально установлен chromewebdriver, так что строку можно закомментировать, selenide подтянет все из пакета.
+        //System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         System.setProperty("selenide.browser", "chrome");
         clearBrowserCache();
         open("https://dev-shop.jowi.club/auth/sign-in");
     }
     @After
     public void end() {
-        char[] hash = new char[4]; //набор символов для имени файла, чтобы исключить повторения (решение так себе)
+        char[] hash = new char[4]; //набор символов для имени файла, чтобы исключить повторения (стоит найти более красивое решение)
         screenshot("/" + name + "_finish_screenshoot" + hash.toString());
         close();
     }
